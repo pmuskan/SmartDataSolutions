@@ -1,0 +1,224 @@
+{
+  "pdf_path": "C:\\SmartDataSolution\\data\\2022_Q3_AAPL.pdf",
+  "page_count": 28,
+  "total_chunks": 59,
+  "chunk_counts": {
+    "text": 28,
+    "table": 30,
+    "figure": 1
+  },
+  "table_qa_report": {
+    "total_tables": 31,
+    "tables_per_page": {
+      "1": 0,
+      "2": 0,
+      "3": 2,
+      "4": 1,
+      "5": 1,
+      "6": 1,
+      "7": 1,
+      "8": 1,
+      "9": 1,
+      "10": 1,
+      "11": 2,
+      "12": 2,
+      "13": 3,
+      "14": 2,
+      "15": 3,
+      "16": 2,
+      "17": 0,
+      "18": 1,
+      "19": 1,
+      "20": 2,
+      "21": 3,
+      "22": 0,
+      "23": 1,
+      "24": 0,
+      "25": 0,
+      "26": 0,
+      "27": 0,
+      "28": 0
+    },
+    "flagged_ragged_rows": [],
+    "flagged_empty_headers": [
+      {
+        "page": 4,
+        "table_idx": 1
+      },
+      {
+        "page": 5,
+        "table_idx": 1
+      },
+      {
+        "page": 6,
+        "table_idx": 1
+      },
+      {
+        "page": 7,
+        "table_idx": 1
+      },
+      {
+        "page": 8,
+        "table_idx": 1
+      },
+      {
+        "page": 9,
+        "table_idx": 1
+      },
+      {
+        "page": 10,
+        "table_idx": 1
+      },
+      {
+        "page": 11,
+        "table_idx": 1
+      },
+      {
+        "page": 11,
+        "table_idx": 2
+      },
+      {
+        "page": 12,
+        "table_idx": 1
+      },
+      {
+        "page": 12,
+        "table_idx": 2
+      },
+      {
+        "page": 13,
+        "table_idx": 1
+      },
+      {
+        "page": 13,
+        "table_idx": 2
+      },
+      {
+        "page": 13,
+        "table_idx": 3
+      },
+      {
+        "page": 14,
+        "table_idx": 1
+      },
+      {
+        "page": 14,
+        "table_idx": 2
+      },
+      {
+        "page": 15,
+        "table_idx": 1
+      },
+      {
+        "page": 15,
+        "table_idx": 3
+      },
+      {
+        "page": 16,
+        "table_idx": 1
+      },
+      {
+        "page": 16,
+        "table_idx": 2
+      },
+      {
+        "page": 18,
+        "table_idx": 1
+      },
+      {
+        "page": 19,
+        "table_idx": 1
+      },
+      {
+        "page": 20,
+        "table_idx": 1
+      },
+      {
+        "page": 20,
+        "table_idx": 2
+      },
+      {
+        "page": 21,
+        "table_idx": 1
+      },
+      {
+        "page": 21,
+        "table_idx": 2
+      },
+      {
+        "page": 21,
+        "table_idx": 3
+      },
+      {
+        "page": 23,
+        "table_idx": 1
+      }
+    ],
+    "spot_check_sample": [
+      {
+        "page": 4,
+        "table_id": "p4_t1",
+        "title": "See accompanying Notes to Condensed Consolidated Financial Statements.",
+        "num_rows": 22,
+        "sample_header": [
+          "Products",
+          "$",
+          "63,355"
+        ]
+      },
+      {
+        "page": 6,
+        "table_id": "p6_t1",
+        "title": "See accompanying Notes to Condensed Consolidated Financial Statements.",
+        "num_rows": 34,
+        "sample_header": [
+          "ASSETS:",
+          "Column_2",
+          "Column_3"
+        ]
+      },
+      {
+        "page": 8,
+        "table_id": "p8_t1",
+        "title": "See accompanying Notes to Condensed Consolidated Financial Statements.",
+        "num_rows": 37,
+        "sample_header": [
+          "Operating activities:",
+          "Column_2",
+          "Column_3"
+        ]
+      },
+      {
+        "page": 10,
+        "table_id": "p10_t1",
+        "title": "Note 2 \u2013 Revenue",
+        "num_rows": 4,
+        "sample_header": [
+          "Mac  (1)",
+          "7,382",
+          "Column_3"
+        ]
+      },
+      {
+        "page": 16,
+        "table_id": "p16_t1",
+        "title": "Note 9 \u2013 Segment Information and Geographic Data",
+        "num_rows": 13,
+        "sample_header": [
+          "Net sales",
+          "$",
+          "37,472"
+        ]
+      }
+    ]
+  },
+  "figure_decisions": [
+    {
+      "page": 1,
+      "xref": 5,
+      "action": "extracted",
+      "reason": "Valid figure/logo (46x56)",
+      "filepath": "C:\\SmartDataSolution\\data\\processed\\figures\\p1_img1.jpeg"
+    }
+  ]
+}

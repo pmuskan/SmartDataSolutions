@@ -1,0 +1,33 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment secrets & virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Testing, Linting & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+
+# Generated Index & Processed Data (keep raw PDF in repo)
+data/chroma_db/
+data/bm25_index.pkl
+data/processed/*.jsonl
+
+# Evaluation results & cache
+eval/results/*.json
+eval/results/*.md
+eval/cache/
+
+# OS & IDE metadata
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,37 @@
+pdf_path: "data/2022_Q3_AAPL.pdf"
+processed_dir: "data/processed"
+chroma_db_dir: "data/chroma_db"
+bm25_index_path: "data/bm25_index.pkl"
+
+chunking:
+  text_chunk_size: 500
+  text_chunk_overlap: 50
+  table_chunk_strategy: "single_unit"
+
+models:
+  embedding: "BAAI/bge-base-en-v1.5"
+  reranker: "cross-encoder/ms-marco-MiniLM-L-6-v2"
+  llm_provider: "openai"  # anthropic, openai, gemini, or mock
+  llm_model: "gpt-4o"
+  vision_model: "gpt-4o"
+
+retrieval:
+  top_k_dense: 20
+  top_k_sparse: 20
+  rrf_k: 60
+  default_top_k: 5
+  router:
+    enabled: true
+    table_boost: 1.5
+    text_boost: 1.2
+    figure_boost: 2.0
+
+generation:
+  temperature: 0.0
+  strict_grounding: true
+  abstention_message: "The requested information is not found in the provided document."
+
+eval:
+  golden_set_path: "eval/golden_set.jsonl"
+  results_dir: "eval/results"
+  cache_dir: "eval/cache"
