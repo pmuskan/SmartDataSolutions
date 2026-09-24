@@ -26,6 +26,9 @@ eval/results/*.json
 eval/results/*.md
 eval/cache/
 
+# Generated Report PDFs
+report/*.pdf
+
 # OS & IDE metadata
 .vscode/
 .idea/
