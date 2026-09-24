@@ -1,52 +1,16 @@
-# 🍎 Apple Inc. Form 10-Q (Q3 2022) Multimodal RAG Engine
+# Apple Inc. Form 10-Q (Q3 2022) Multimodal RAG Engine
 
 A complete, reproducible, multimodal Retrieval-Augmented Generation (RAG) system over Apple Inc.'s Q3 2022 Form 10-Q filing (`data/2022_Q3_AAPL.pdf`), featuring financial table extraction, single-unit tabular chunking, hybrid RRF retrieval, cross-encoder reranking, OpenAI `gpt-4o` integration, safe AST calculator execution, structured citations, strict non-question abstention guardrails, a 42-item golden evaluation benchmark, Streamlit UI, CLI, and PDF report builders.
 
 ---
 
-## 🏛️ System Architecture
+## System Flow
 
-```mermaid
-flowchart TD
-    subgraph Ingestion ["1. Multimodal Ingestion Pipeline"]
-        PDF["data/2022_Q3_AAPL.pdf"] --> TP["TextParser (PyMuPDF)"]
-        PDF --> TabP["TableParser (pdfplumber)"]
-        PDF --> FP["FigureParser (PyMuPDF)"]
-        TP --> CE["Chunking Engine (500 Tok / Single-Unit Tables)"]
-        TabP --> CE
-        FP --> CE
-        CE --> Chunks["data/processed/chunks.jsonl"]
-    end
-
-    subgraph Indexing ["2. Dual-Index Layer"]
-        Chunks --> Dense["Chroma DB (BAAI/bge-base-en-v1.5)"]
-        Chunks --> Sparse["BM25 Index (rank_bm25)"]
-    end
-
-    subgraph Retrieval ["3. Core Hybrid Retrieval & Routing Strategy"]
-        UserQ["User Query / CLI / Streamlit"] --> Dense
-        UserQ --> Sparse
-        Dense --> TopDense["Dense Top-20 Candidates"]
-        Sparse --> TopSparse["Sparse Top-20 Candidates"]
-        TopDense --> RRF["Reciprocal Rank Fusion (RRF k=60)"]
-        TopSparse --> RRF
-        RRF --> QR["Query Router (Intent Modality Boosting)"]
-        QR --> Reranker["Cross-Encoder Reranker (ms-marco-MiniLM-L-6-v2)"]
-        Reranker --> TopK["Top-K Evidence Chunks"]
-    end
-
-    subgraph Generation ["4. Grounded Generation & Tool Execution"]
-        TopK --> Guard["Guardrails (Greeting & Out-of-Scope Filter)"]
-        Guard -->|Valid Query| RAGGen["OpenAI GPT-4o / Prompt Grounding"]
-        Guard -->|Greeting / Non-Question| Abstain["Strict Abstention Response"]
-        RAGGen --> ASTCalc["AST Calculator Tool (YoY %, Margins)"]
-        ASTCalc --> Answer["Structured Answer (Text, Citations, Tool Traces)"]
-    end
-```
+<img width="1203" height="5193" alt="My First Board" src="https://github.com/user-attachments/assets/d1a6a216-d42f-412e-b8bb-b640f81942c5" />
 
 ---
 
-## 🎯 Primary Retrieval & Chunking Strategy
+## Primary Retrieval & Chunking Strategy
 
 The system defaults to a single, locked **Best Retrieval & Chunking Strategy**:
 
@@ -56,7 +20,7 @@ The system defaults to a single, locked **Best Retrieval & Chunking Strategy**:
 
 ---
 
-## 🚀 Quickstart Guide
+##  Quickstart Guide
 
 ### 1. Installation & Environment Setup
 
@@ -123,7 +87,7 @@ All metrics below are computed directly from evaluation runs on the 42-item gold
 
 ---
 
-## 💻 CLI Output Example
+##  CLI Output Example
 
 ```text
 =======================================================
@@ -146,7 +110,7 @@ CALCULATOR TOOL TRACES:
 
 ---
 
-## 🧪 Test Suite
+##  Test Suite
 
 Run unit and integration tests with Pytest:
 
@@ -203,14 +167,3 @@ generation:
   strict_grounding: true
   abstention_message: "The requested information is not found in the provided document."
 ```
-
----
-
-## 📄 PDF Report Generation
-
-The project includes report scripts to compile documentation:
-
-1. **`report/build_solution_overview.py`**: Generates `report/solution_overview.pdf` detailing architecture, methodology, and design choices.
-2. **`report/build_report.py`**: Generates `report/methodology.pdf` detailing benchmark performance and error analysis.
-
-*(Note: Compiled `.pdf` files are automatically excluded from Git commits via `.gitignore`).*
